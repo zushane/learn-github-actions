@@ -1,7 +1,7 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  pull-down-code:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
@@ -9,22 +9,9 @@ jobs:
       - name: Just sleep for a bit
         run: /bin/sleep 10
         shell: bash
-  set-up-node:
-    runs-on: ubuntu-latest
-    steps:
       - name: Set up node
         uses: actions/setup-node@v1
-  install-bats:
-    runs-on: ubuntu-latest
-    needs: set-up-node
-    steps:
       - name: Install bats
         run: npm install -g bats
-  check-bats-version:
-    runs-on: ubuntu-latest
-    needs: install-bats
-    steps:
       - name: Run bats
         run: bats -v
-        
-
