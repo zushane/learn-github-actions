@@ -4,8 +4,12 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - name: Set up node
+        uses: actions/setup-node@v1
+      - name: Install bats
+        run: npm install -g bats
+      - name: Run bats
+        run: bats -v
 
