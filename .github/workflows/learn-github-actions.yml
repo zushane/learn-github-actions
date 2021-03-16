@@ -6,6 +6,9 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
+      - name: Just sleep for a bit
+        run: /bin/sleep 10
+        shell: bash
       - name: Set up node
         uses: actions/setup-node@v1
       - name: Install bats
